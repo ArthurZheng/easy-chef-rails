@@ -1,4 +1,4 @@
-site :opscode
+source "https://supermarket.chef.io"
 
 # basic cookbook for installing packages via apt
 cookbook 'apt'
@@ -23,18 +23,21 @@ cookbook 'ufw'
 
 # standard server tools
 cookbook 'vim'
-cookbook 'curl', git: 'https://github.com/phlipper/chef-curl'
+cookbook 'curl', git: "https://github.com/retr0h/cookbook-curl"
 
 # the name of the following cookbooks says it all
-cookbook 'nginx'
+cookbook 'chef_nginx', git: "https://github.com/chef-cookbooks/chef_nginx"
 cookbook 'postgresql'
-cookbook 'rbenv', git: 'https://github.com/fnichol/chef-rbenv'
+cookbook 'ruby_rbenv'
 cookbook 'ruby_build'
+cookbook 'build-essential', '~> 8.0.3'
 
 # nodejs is required for rails asset compilation
 cookbook 'nodejs'
 
 # these packages are dependency for many common ruby gems
 cookbook 'xslt'
-cookbook 'libxml2', git: 'https://github.com/tomlinton/chef-libxml2'
+cookbook 'libxml2'
 cookbook 'imagemagick'
+
+cookbook 'seven_zip'

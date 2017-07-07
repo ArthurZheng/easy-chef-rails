@@ -1,5 +1,5 @@
 require 'securerandom'
-ruby_version = "2.0.0-p353" # change ruby version here
+ruby_version = "2.3.1" # change ruby version here
 
 name "rails"
 description "Provisions server for rails app installation"
@@ -14,14 +14,14 @@ run_list(
   "recipe[sudo]",
   "recipe[fail2ban]",
   "recipe[curl]",
-  "recipe[curl::devel]",
+  # "recipe[curl::devel]",
   "recipe[ufw]",
   # nginx, postgresql and ruby/rails related packages
-  "recipe[nginx]",
+  "recipe[chef_nginx]",
   "recipe[postgresql::client]",
   "recipe[postgresql::server]",
   "recipe[ruby_build]",
-  "recipe[rbenv::user]",
+  "recipe[ruby_rbenv::user]",
   "recipe[imagemagick]",
   "recipe[imagemagick::devel]",
   "recipe[nodejs]",
